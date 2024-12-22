@@ -1,7 +1,7 @@
 project:
   type: website
   output-dir: docs
-  
+
 website:
   title: "Ravindra's Data Science Blog"
   navbar:
@@ -10,9 +10,12 @@ website:
         href: index.qmd
       - text: Blog
         href: posts.qmd
+      - text: About
+        href: about.qmd
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+

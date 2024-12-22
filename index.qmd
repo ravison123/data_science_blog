@@ -1,13 +1,7 @@
 ---
-title: "Data Science Blog"
+title: "Welcome to My Blog"
 ---
 
+Welcome to my personal blog where I share insights on various topics.
 
-## Recent Blog Posts
-
-```{list}
-type: table
-contents: blog/
-sort: date
-sort-desc: true
-categories: blog
+[Read my latest posts](posts.html)
