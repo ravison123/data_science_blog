@@ -1,7 +1,4 @@
 ---
-title: "Welcome to My Blog"
+title: "Exploring the World of AI and Data Science"
 ---
-
-Welcome to my personal blog where I share insights on various topics.
-
-[Read my latest posts](posts.html)
+Welcome to my blog, where I explore the exciting world of Data Science, Machine Learning, and Generative AI. My aim is to simplify complex concepts, share the latest trends, and inspire others to dive deeper into these transformative technologies. Explore my latest posts for insights, tutorials, and discussions on the future of AI!

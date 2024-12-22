@@ -9,16 +9,16 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Welcome to My Blog",
+    "title": "Exploring the World of AI and Data Science",
     "section": "",
-    "text": "Welcome to my personal blog where I share insights on various topics.\nRead my latest posts"
+    "text": "Welcome to my blog, where I explore the exciting world of Data Science, Machine Learning, and Generative AI. My aim is to simplify complex concepts, share the latest trends, and inspire others to dive deeper into these transformative technologies. Explore my latest posts for insights, tutorials, and discussions on the future of AI!"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "Hi, I’m Ravindra. I’m passionate about Data Science, Machine Learning, and Generative AI, and I believe, as Andrew Ng says, “data is the new electricity.” This blog focuses on the practical side of these fields—how to use data and AI to solve real-world problems and drive impact. Join me as I explore hands-on projects, share insights, and dive into the tools and techniques shaping the future.\nFeel free to connect with me on LinkedIn or explore my projects on GitHub."
   },
   {
     "objectID": "posts/code_fine_tuning.html",

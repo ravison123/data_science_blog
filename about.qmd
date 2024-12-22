@@ -2,4 +2,7 @@
 title: "About"
 ---
 
-About this site
+Hi, I’m Ravindra. I’m passionate about Data Science, Machine Learning, and Generative AI, and I believe, as Andrew Ng says, "data is the new electricity." This blog focuses on the practical side of these fields—how to use data and AI to solve real-world problems and drive impact. Join me as I explore hands-on projects, share insights, and dive into the tools and techniques shaping the future.
+
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/ravindra-sonawane-a8213916/) or explore my projects on [GitHub](https://github.com/ravison123).
+
