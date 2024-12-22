@@ -1,4 +1,6 @@
 ---
 title: "Exploring the World of AI and Data Science"
 ---
+![](images/homepage_image.webp)
+
 Welcome to my blog, where I explore the exciting world of Data Science, Machine Learning, and Generative AI. My aim is to simplify complex concepts, share the latest trends, and inspire others to dive deeper into these transformative technologies. Explore my latest posts for insights, tutorials, and discussions on the future of AI!

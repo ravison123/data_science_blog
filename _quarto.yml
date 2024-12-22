@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Ravindra's Data Science Blog"
+  title: "Ravindra's AI Blog"
   navbar:
     left:
       - text: Home
