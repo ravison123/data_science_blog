@@ -1,14 +1,15 @@
 project:
   type: website
   output-dir: docs
-
+  
 website:
   title: "Ravindra's Data Science Blog"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: Home
+        href: index.qmd
+      - text: Blog
+        href: posts.qmd
 
 format:
   html:

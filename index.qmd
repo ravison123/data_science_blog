@@ -1,7 +1,13 @@
 ---
-title: "data_science_blog"
+title: "Data Science Blog"
 ---
 
-This is a Quarto website.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Recent Blog Posts
+
+```{list}
+type: table
+contents: blog/
+sort: date
+sort-desc: true
+categories: blog
