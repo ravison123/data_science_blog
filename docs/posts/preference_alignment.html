@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2025-01-05">
 <meta name="description" content="A hands on guide to perform preference alignment of Large Language Models using Direct Preference Optimization (DPO) algorithm">
 
-<title>Preference Alignment using DPO – Ravindra’s AI Blog</title>
+<title>Preference Alignment using Direct Preference Optimization (DPO) – Ravindra’s AI Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -177,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Preference Alignment using DPO</h1>
+<h1 class="title">Preference Alignment using Direct Preference Optimization (DPO)</h1>
   <div class="quarto-categories">
     <div class="quarto-category">trl</div>
     <div class="quarto-category">Fine-Tuning</div>
@@ -402,7 +402,8 @@ Do you possess the ability to navigate or move within a physical environment?&lt
 </div>
 </div>
 <div id="cell-24" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2025-01-04T06:44:09.846064Z&quot;,&quot;iopub.status.busy&quot;:&quot;2025-01-04T06:44:09.845777Z&quot;,&quot;iopub.status.idle&quot;:&quot;2025-01-04T06:44:12.818194Z&quot;,&quot;shell.execute_reply&quot;:&quot;2025-01-04T06:44:12.817358Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2025-01-04T06:44:09.846043Z&quot;}">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>outputs <span class="op">=</span> model.generate(<span class="op">**</span>inputs, max_new_tokens<span class="op">=</span><span class="dv">100</span>, temperature<span class="op">=</span><span class="fl">0.2</span>, top_p<span class="op">=</span><span class="fl">0.9</span>, do_sample<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>outputs <span class="op">=</span> model.generate(<span class="op">**</span>inputs, max_new_tokens<span class="op">=</span><span class="dv">100</span>, temperature<span class="op">=</span><span class="fl">0.2</span>, top_p<span class="op">=</span><span class="fl">0.9</span>, </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                         do_sample<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-25" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2025-01-04T06:44:12.819492Z&quot;,&quot;iopub.status.busy&quot;:&quot;2025-01-04T06:44:12.819174Z&quot;,&quot;iopub.status.idle&quot;:&quot;2025-01-04T06:44:12.826316Z&quot;,&quot;shell.execute_reply&quot;:&quot;2025-01-04T06:44:12.825542Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2025-01-04T06:44:12.819460Z&quot;}" data-outputid="6b3e1add-1932-4b8d-8786-aea81f1e5f94">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>outputs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -428,22 +429,23 @@ I'm designed to assist users in navigating and moving within a physical environm
 </div>
 </div>
 <div id="cell-27" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2025-01-04T06:55:30.119205Z&quot;,&quot;iopub.status.busy&quot;:&quot;2025-01-04T06:55:30.118805Z&quot;,&quot;iopub.status.idle&quot;:&quot;2025-01-04T06:55:30.125528Z&quot;,&quot;shell.execute_reply&quot;:&quot;2025-01-04T06:55:30.124690Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2025-01-04T06:55:30.119147Z&quot;}">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_completion(model_, input_prompt, system_prompt, max_new_tokens<span class="op">=</span><span class="dv">100</span>, temperature<span class="op">=</span><span class="fl">0.2</span>, top_p<span class="op">=</span><span class="fl">0.9</span>):</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    messages <span class="op">=</span> [</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"role"</span>: <span class="st">"system"</span>,</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"content"</span>: system_prompt</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>     {<span class="st">"role"</span>: <span class="st">"user"</span>,</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>     <span class="st">"content"</span>: input_prompt}]</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    input_text<span class="op">=</span>tokenizer.apply_chat_template(messages, tokenize<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    inputs <span class="op">=</span> tokenizer(input_text, return_tensors<span class="op">=</span><span class="st">"pt"</span>).to(device)</span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    prompt_length <span class="op">=</span> inputs[<span class="st">'input_ids'</span>].shape[<span class="dv">1</span>]</span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    outputs <span class="op">=</span> model_.generate(<span class="op">**</span>inputs, max_new_tokens<span class="op">=</span>max_new_tokens, temperature<span class="op">=</span>temperature,</span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>                             top_p<span class="op">=</span>top_p, do_sample<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    output_text <span class="op">=</span> tokenizer.decode(outputs[<span class="dv">0</span>][prompt_length:], skip_special_tokens<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> output_text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_completion(model_, input_prompt, system_prompt, max_new_tokens<span class="op">=</span><span class="dv">100</span>, </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                   temperature<span class="op">=</span><span class="fl">0.2</span>, top_p<span class="op">=</span><span class="fl">0.9</span>):</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    messages <span class="op">=</span> [</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"role"</span>: <span class="st">"system"</span>,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"content"</span>: system_prompt</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>     {<span class="st">"role"</span>: <span class="st">"user"</span>,</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>     <span class="st">"content"</span>: input_prompt}]</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    input_text<span class="op">=</span>tokenizer.apply_chat_template(messages, tokenize<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    inputs <span class="op">=</span> tokenizer(input_text, return_tensors<span class="op">=</span><span class="st">"pt"</span>).to(device)</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    prompt_length <span class="op">=</span> inputs[<span class="st">'input_ids'</span>].shape[<span class="dv">1</span>]</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    outputs <span class="op">=</span> model_.generate(<span class="op">**</span>inputs, max_new_tokens<span class="op">=</span>max_new_tokens, </span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>                              temperature<span class="op">=</span>temperature, top_p<span class="op">=</span>top_p, do_sample<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>    output_text <span class="op">=</span> tokenizer.decode(outputs[<span class="dv">0</span>][prompt_length:], skip_special_tokens<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> output_text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-28" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2025-01-04T06:56:29.094753Z&quot;,&quot;iopub.status.busy&quot;:&quot;2025-01-04T06:56:29.094389Z&quot;,&quot;iopub.status.idle&quot;:&quot;2025-01-04T06:56:29.673406Z&quot;,&quot;shell.execute_reply&quot;:&quot;2025-01-04T06:56:29.672571Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2025-01-04T06:56:29.094724Z&quot;}" data-outputid="68298efa-32bd-4aa8-c980-87be972d682a">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>get_completion(model, <span class="st">'How are you?'</span>, system_prompt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
