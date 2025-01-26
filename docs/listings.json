@@ -2,6 +2,7 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/posts/audio_classification_final.html",
       "/posts/auto_encoder.html",
       "/posts/preference_alignment.html",
       "/posts/code_fine_tuning.html"
